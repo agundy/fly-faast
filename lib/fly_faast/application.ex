@@ -15,7 +15,8 @@ defmodule FlyFaast.Application do
       # Start Finch
       {Finch, name: FlyFaast.Finch},
       # Start the Endpoint (http/https)
-      FlyFaastWeb.Endpoint
+      FlyFaastWeb.Endpoint,
+      {FlyFaast.Janitor, []}
       # Start a worker by calling: FlyFaast.Worker.start_link(arg)
       # {FlyFaast.Worker, arg}
     ]

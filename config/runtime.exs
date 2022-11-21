@@ -48,6 +48,9 @@ if config_env() == :prod do
     ],
     secret_key_base: secret_key_base
 
+  shutdown_timeout = String.to_integer(System.get_env("FLY_FAAST_TIMEOUT") || "10000")
+
+  config :fly_faast, FlyFaast.Janitor, shutdown_timeout: shutdown_timeout
   # ## SSL Support
   #
   # To get SSL working, you will need to add the `https` key

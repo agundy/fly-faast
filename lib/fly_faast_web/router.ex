@@ -3,10 +3,13 @@ defmodule FlyFaastWeb.Router do
 
   pipeline :api do
     plug :accepts, ["json"]
+    plug FlyFaastWeb.KeepAlive
   end
 
   scope "/api", FlyFaastWeb do
     pipe_through :api
+
+    get "/hello", FunctionController, :hello
   end
 
   # Enable Swoosh mailbox preview in development
